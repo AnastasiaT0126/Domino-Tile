@@ -1,6 +1,7 @@
 package Project;
 
 public class DominoTie {
+	
 	private int left;
 	private int right;
 	
@@ -47,6 +48,60 @@ public class DominoTie {
 		return false;
 	}
 	
+	public boolean equalSides(DominoTie newTile, int side)
+	{
+		if(side == 1)
+		{
+			if(this.left == newTile.getRight())
+			{
+				return true;
+			}
+			if(this.left == newTile.getLeft())
+			{
+				newTile.exchangeSides();
+				return true;
+			}
+		}
+		if(side == 2)
+		{
+			if(this.right == newTile.getLeft())
+			{
+				return true;
+			}
+			if(this.right == newTile.getRight())
+			{
+				newTile.exchangeSides();
+				return true;
+			}
+		}
+		return false;
+	}
 	
-
+	private char[][] side(int points)
+	{
+		char[][] sideArr = new char[3][3];
+		
+		if(points == 6)
+		{
+			sideArr[1][0] = '*';
+			sideArr[1][2] = '*';
+		}
+		
+		if(points % 2 == 1)
+		{
+			sideArr[1][1] = '*';
+		}
+		
+		for(int i = 0; i <= points && points != 0; i+=2)
+		{
+			sideArr[i][i] = '*';
+			if(points > 2 && i >= 2)
+			{
+				sideArr[0][2] = '*';
+				sideArr[2][0] = '*';
+			}
+		}
+		return sideArr;
+	}
+	
 }
