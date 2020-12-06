@@ -54,7 +54,7 @@ public class DominoPlayer {
 		return -1;
 	}
 	
-	//тук погледнах от Гери, защото не мажах да се сетя, но го разбрах
+	//тук погледнах от Гери, защото не мoжах да се сетя, но го разбрах
 	public void addTileAtLeft(DominoTie t)
 	{
 		int index = getTileIndex(t);
