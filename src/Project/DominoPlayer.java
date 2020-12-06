@@ -1,10 +1,10 @@
 package Project;
 
 public class DominoPlayer {
-	private String nickname; // никнейм на играча
-	private DominoTie[] tiles; // пулчетата, които играча има в ръцете си
-	private int tilesInHands; // колко пулчета има в ръцете си 
-	private DominoTable table; // масата, на която играе съответния играч
+	private String nickname; 
+	private DominoTie[] tiles; 
+	private int tilesInHands;  
+	private DominoTable table; 
 	
 	public DominoPlayer(String nickname, DominoTie[] tiles, int tilesInHands, DominoTable table)
 	{
