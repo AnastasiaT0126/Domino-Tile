@@ -53,4 +53,25 @@ public class DominoPlayer {
 		}
 		return -1;
 	}
+	
+	//тук погледнах от Гери, защото не мажах да се сетя, но го разбрах
+	public void addTileAtLeft(DominoTie t)
+	{
+		int index = getTileIndex(t);
+		if(index != -1 && table.addLeft(t))
+		{
+			tiles[index] = null;
+			this.tilesInHands--;
+		}
+	}
+	
+	public void addTileAtRight(DominoTie t)
+	{
+		int index = getTileIndex(t);
+		if(index != -1 && table.addRight(t))
+		{
+			tiles[index] = null;
+			this.tilesInHands--;
+		}
+	}
 }
