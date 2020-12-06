@@ -16,7 +16,7 @@ public class DominoPlayer {
 	
 	public void setNickname(String nickname)
 	{
-		if(nickname != null || nickname.isEmpty())
+		if(nickname != null || !nickname.isEmpty())
 		{
 			this.nickname = nickname;
 		}
