@@ -46,7 +46,7 @@ public class DominoPlayer {
 	{
 		for(int i = 0; i < tiles.length; i++)
 		{
-			if(tiles[i] == t)
+			if(tiles[i].equals(t))
 			{
 				return i;
 			}
