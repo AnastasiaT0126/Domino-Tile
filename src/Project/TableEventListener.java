@@ -1,5 +1,5 @@
 package Project;
 
 public interface TableEventListener {
-	void onTableChanged(DominoTable table);
+	void onTableChanged(DominoTable eventListener);
 }
