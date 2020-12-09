@@ -8,6 +8,8 @@ public class DominoTable {
 	
 	private DominoTie[] table;
 	private int lastElement;
+	
+	private TableEventListener eventListener;
 
 	public DominoTable()
 	{
@@ -42,14 +44,22 @@ public class DominoTable {
 	{
 		if(table[0] == null)
 		{
-			table[0] = newTile;
-			return true;
+			if(eventListener != null)
+			{
+				table[0] = newTile;
+				eventListener.onTableChanged(this);
+				return true;
+			}
 		}
 		if(posible() && table[0].equalSides(newTile, LEFT))
 		{
-			move();
-			table[0] = newTile;
-			return true;
+			if(eventListener != null)
+			{
+				move();
+				table[0] = newTile;
+				eventListener.onTableChanged(this);
+				return true;
+			}
 		}
 		return false;
 	}
@@ -60,14 +70,22 @@ public class DominoTable {
 		{
 			if(table[lastElement] == null)
 			{
-				table[lastElement] = newTile;
-				return true;
+				if(eventListener != null)
+				{
+					table[lastElement] = newTile;
+					eventListener.onTableChanged(this);
+					return true;
+				}
 			}
 			if(table[lastElement].equalSides(newTile, RIGHT))
 			{
-				lastElement++;
-				table[lastElement] = newTile;
-				return true;
+				if(eventListener != null)
+				{
+					lastElement++;
+					table[lastElement] = newTile;
+					eventListener.onTableChanged(this);
+					return true;
+				}
 			}
 		}
 		return false;
@@ -89,5 +107,10 @@ public class DominoTable {
 		System.out.println(firstRow);
 		System.out.println(secondRow);
 		System.out.println(thirdRow);
+	}
+	
+	public void addTableEventListener(TableEventListener listener)
+	{
+		this.eventListener = listener;
 	}
 }
